@@ -2,7 +2,7 @@ import React from "react";
 function MakeGuess() {
   return (
     <div>
-      <h1>MakeGuess</h1>
+      <h1>Make Guess</h1>
     </div>
   );
 }
