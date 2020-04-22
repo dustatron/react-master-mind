@@ -1,6 +1,9 @@
 import React from "react";
-
 function GuessTemplate() {
-  return <h1>Guess Template</h1>;
+  return (
+    <div>
+      <h1>GuessTemplate</h1>
+    </div>
+  );
 }
 export default GuessTemplate;
