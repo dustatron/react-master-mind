@@ -6,7 +6,7 @@ import GameBoard from "./Game/GameBoard";
 
 function App() {
   return (
-    <div className="App">
+    <div className="ui container">
       <Header />
       <h1> Master Mind App </h1>
       <Splash />

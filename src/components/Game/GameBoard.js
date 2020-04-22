@@ -4,6 +4,7 @@ import Clues from "./Clues";
 import MakeGuess from "./MakeGuess";
 import MasterMindRow from "./MasterMindRow";
 import GuessTemplate from "./GuessTemplate";
+import Pegs from "./PegsTemplate";
 
 class GameBoard extends React.Component {
   constructor(props) {
@@ -11,8 +12,7 @@ class GameBoard extends React.Component {
 
     this.state = {
       masterSequence: this.handleMasterSequence(),
-      userGuess: [],
-      clues: []
+      turn: [ { guess: [], clue: [] } ]
     };
 
     // this.handleMasterSequence();
@@ -29,11 +29,72 @@ class GameBoard extends React.Component {
   render() {
     return (
       <div>
-        <h1>GameBoard</h1>
-        <MasterMindRow sequence={this.state.masterSequence} />
-        <Clues />
-        <MakeGuess />
-        <GuessTemplate />
+        <div className="ui grid">
+          <div class="row">
+            <div class="sixteen wide column">
+              <div class="ui segment">
+                <MasterMindRow sequence={this.state.masterSequence} />
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div class="four wide column">
+              <div class="ui segment">
+                <Pegs pegOne="pin-black" pegTwo="pin-black" pegThree="pin-black" pegFour="pin-black" />
+              </div>
+            </div>
+            <div class="twelve wide column">
+              <div class="ui segment">
+                <GuessTemplate turn="3" />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div class="four wide column">
+              <div class="ui segment">
+                <Pegs pegOne="pin-white" pegTwo="pin-white" pegThree="pin-black" pegFour="pin-black" />
+              </div>
+            </div>
+            <div class="twelve wide column">
+              <div class="ui segment">
+                <GuessTemplate turn="3" />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div class="four wide column">
+              <div class="ui segment">
+                <Pegs pegOne="pin-black" pegTwo="pin-black" pegThree="pin-black" pegFour="pin-white" />
+              </div>
+            </div>
+            <div class="twelve wide column">
+              <div class="ui segment">
+                <GuessTemplate turn="3" />
+              </div>
+            </div>
+          </div>
+
+          {/* <div class="twelve wide column">
+              <div class="ui segment">
+              </div>
+              <div class="ui segment">
+                <GuessTemplate turn="2" />
+              </div>
+              <div class="ui segment">
+                <GuessTemplate turn="1" />
+              </div>
+            </div>
+          </div> */}
+
+          <div className="row">
+            <div class="sixteen wide column">
+              <div class="ui segment">
+                <MakeGuess />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

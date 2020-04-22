@@ -3,9 +3,16 @@ import Pegs from "./PegsTemplate";
 
 function Clues() {
   return (
-    <div>
-      <h1>Clues</h1>
-      <Pegs />
+    <div className="row">
+      <div class="ui segment">
+        <Pegs />
+      </div>
+      <div class="ui segment">
+        <Pegs />
+      </div>
+      <div class="ui segment">
+        <Pegs />
+      </div>
     </div>
   );
 }
