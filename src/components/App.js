@@ -8,9 +8,9 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <h1> Master Mind App </h1>
       <Splash />
       <GameBoard />
-      <h1> Master Mind App </h1>
     </div>
   );
 }
