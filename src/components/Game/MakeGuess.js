@@ -55,7 +55,6 @@ function MakeGuess(props) {
                 <option value="Yellow">Yellow</option>
                 <option value="White">White</option>
                 <option value="Black">Black</option>
-                border-radius: 50%;
               </select>
             </div>
             <div className="three wide column">

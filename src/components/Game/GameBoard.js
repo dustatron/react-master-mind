@@ -9,17 +9,22 @@ class GameBoard extends React.Component {
     super(props);
 
     this.state = {
-      masterSequence: 1234,
+      masterSequence: this.handleMasterSequence(),
       turns: []
     };
   }
 
   handleMasterSequence = () => {
+    const colorArr = [ "Red", "Green", "Blue", "Yellow", "White", "Black" ];
     // const newMasterSequence = this.state.masterSequence.concat(color);
     const newMasterSequence = [ 1, 1, 1, 1 ].map((color) => {
-      return Math.floor(Math.random() * 7);
+      return Math.floor(Math.random() * 5);
     });
-    return newMasterSequence;
+    console.log(newMasterSequence);
+    const newMasterSequenceColors = newMasterSequence.map((colorNumber) => {
+      return colorArr[colorNumber];
+    });
+    return newMasterSequenceColors;
   };
 
   handleAddingGuessToBoard = (newGuess) => {
