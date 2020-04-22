@@ -1,6 +1,9 @@
 import React from "react";
-
 function MakeGuess() {
-  return <h1>Make Guess</h1>;
+  return (
+    <div>
+      <h1>MakeGuess</h1>
+    </div>
+  );
 }
 export default MakeGuess;

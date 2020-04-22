@@ -1,6 +1,6 @@
 import React from "react";
 
-function MasterMindRow() {
-  return <h1>Master Mind Row</h1>;
+function MasterMindRow(props) {
+  return <div>{props.sequence}</div>;
 }
 export default MasterMindRow;

@@ -3,15 +3,15 @@ import React from "react";
 function Header() {
   return (
     <header>
-      <div class="ui inverted segment">
-        <div class="ui inverted secondary pointing menu">
-          <a class="active item" href="/">
+      <div className="ui inverted segment">
+        <div className="ui inverted secondary pointing menu">
+          <a className="active item" href="/">
             Mind Master
           </a>
-          <a class="item" href="/">
+          <a className="item" href="/">
             About Us
           </a>
-          <a class="item" href="/">
+          <a className="item" href="/">
             Friend Finder
           </a>
         </div>
