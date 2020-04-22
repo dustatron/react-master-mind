@@ -1,21 +1,17 @@
 import React from "react";
 // import ReactDom from "react-dom";
-import Clues from "./Clues";
 import MakeGuess from "./MakeGuess";
 import MasterMindRow from "./MasterMindRow";
-import GuessTemplate from "./GuessTemplate";
-import Pegs from "./PegsTemplate";
+import Turn from "./Turn";
 
 class GameBoard extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      masterSequence: this.handleMasterSequence(),
-      turn: [ { guess: [], clue: [] } ]
+      masterSequence: 1234,
+      turns: []
     };
-
-    // this.handleMasterSequence();
   }
 
   handleMasterSequence = () => {
@@ -26,71 +22,45 @@ class GameBoard extends React.Component {
     return newMasterSequence;
   };
 
+  handleAddingGuessToBoard = (newGuess) => {
+    const newGuessSequence = this.state.turns.concat(newGuess);
+    this.setState({ turns: newGuessSequence });
+    console.log(this.state.turns);
+  };
+
   render() {
     return (
       <div>
         <div className="ui grid">
-          <div class="row">
-            <div class="sixteen wide column">
-              <div class="ui segment">
+          <div className="row">
+            <div className="sixteen wide column">
+              <div className="ui segment">
                 <MasterMindRow sequence={this.state.masterSequence} />
               </div>
             </div>
           </div>
 
-          <div className="row">
-            <div class="four wide column">
-              <div class="ui segment">
-                <Pegs pegOne="pin-black" pegTwo="pin-black" pegThree="pin-black" pegFour="pin-black" />
-              </div>
-            </div>
-            <div class="twelve wide column">
-              <div class="ui segment">
-                <GuessTemplate turn="3" />
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div class="four wide column">
-              <div class="ui segment">
-                <Pegs pegOne="pin-white" pegTwo="pin-white" pegThree="pin-black" pegFour="pin-black" />
-              </div>
-            </div>
-            <div class="twelve wide column">
-              <div class="ui segment">
-                <GuessTemplate turn="3" />
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div class="four wide column">
-              <div class="ui segment">
-                <Pegs pegOne="pin-black" pegTwo="pin-black" pegThree="pin-black" pegFour="pin-white" />
-              </div>
-            </div>
-            <div class="twelve wide column">
-              <div class="ui segment">
-                <GuessTemplate turn="3" />
-              </div>
-            </div>
-          </div>
-
-          {/* <div class="twelve wide column">
-              <div class="ui segment">
-              </div>
-              <div class="ui segment">
-                <GuessTemplate turn="2" />
-              </div>
-              <div class="ui segment">
-                <GuessTemplate turn="1" />
-              </div>
-            </div>
-          </div> */}
+          {this.state.turns.map((thisTurn, index) => {
+            return (
+              <Turn
+                // clueOne={thisTurn.clue[0]}
+                // clueTwo={thisTurn.clue[1]}
+                // clueThree={thisTurn.clue[2]}
+                // clueFour={thisTurn.clue[3]}
+                colorOne={thisTurn.colorOne}
+                colorTwo={thisTurn.colorTwo}
+                colorThree={thisTurn.colorThree}
+                colorFour={thisTurn.colorFour}
+                // turnNumber={thisTurn.turn}
+                key={thisTurn.guessId}
+              />
+            );
+          })}
 
           <div className="row">
-            <div class="sixteen wide column">
-              <div class="ui segment">
-                <MakeGuess />
+            <div className="sixteen wide column">
+              <div className="ui segment">
+                <MakeGuess onNewGuessOnClick={this.handleAddingGuessToBoard} />
               </div>
             </div>
           </div>

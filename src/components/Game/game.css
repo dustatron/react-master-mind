@@ -47,123 +47,22 @@
   background-color: #333;
 }
 
-.pin-red {
+.pin-Red {
   background-color: red;
 }
-.pin-green {
-  background-color: green;
-  margin: 10px;
-}
-
-.make-guess-box {
-  height: 15rem;
-  background-color: #333;
-  width: 100%;
-}
-
-.colored-pin {
-  content: attr("");
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  margin: auto;
-}
-
-.pin-grey {
-  background-color: #333;
-}
-
-.pin-red {
-  background-color: red;
-}
-.pin-green {
+.pin-Green {
   background-color: green;
 }
 
-.make-guess-box {
-  height: 15rem;
-  background-color: #333;
-  width: 100%;
-}
-
-.colored-pin {
-  content: attr("");
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  margin: auto;
-}
-
-.pin-grey {
-  background-color: #333;
-}
-
-.pin-red {
-  background-color: red;
-}
-.pin-green {
-  background-color: green;
-}
-
-.make-guess-box {
-  height: 15rem;
-  background-color: #333;
-  width: 100%;
-}
-
-.colored-pin {
-  content: attr("");
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  margin: auto;
-}
-
-.pin-grey {
-  background-color: #333;
-}
-
-.pin-red {
-  background-color: red;
-}
-.pin-green {
-  background-color: green;
-}
-
-.make-guess-box {
-  height: 15rem;
-  background-color: #333;
-  width: 100%;
-}
-
-.colored-pin {
-  content: attr("");
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  margin: auto;
-}
-
-.pin-grey {
-  background-color: #333;
-}
-
-.pin-red {
-  background-color: red;
-}
-.pin-green {
-  background-color: green;
-}
-
-.pin-blue {
+.pin-Blue {
   background-color: blue;
 }
-.pin-yellow {
+.pin-Yellow {
   background-color: yellow;
 }
-.pin-white {
+.pin-White {
   background-color: whitesmoke;
 }
-.pin-black {
+.pin-Black {
   background-color: black;
 }

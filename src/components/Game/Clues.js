@@ -4,13 +4,13 @@ import Pegs from "./PegsTemplate";
 function Clues() {
   return (
     <div className="row">
-      <div class="ui segment">
+      <div className="ui segment">
         <Pegs />
       </div>
-      <div class="ui segment">
+      <div className="ui segment">
         <Pegs />
       </div>
-      <div class="ui segment">
+      <div className="ui segment">
         <Pegs />
       </div>
     </div>

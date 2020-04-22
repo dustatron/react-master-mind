@@ -4,16 +4,16 @@ function GuessTemplate(props) {
     <div className="ui grid guess">
       <div className="row">
         <div className="three wide column">
-          <div className="colored-pin pin-green" />
+          <div className={"colored-pin pin-" + props.colorOne} />
         </div>
         <div className="three wide column">
-          <div className="colored-pin pin-red" />
+          <div className={"colored-pin pin-" + props.colorTwo} />
         </div>
         <div className="three wide column">
-          <div className="colored-pin pin-yellow" />
+          <div className={"colored-pin pin-" + props.colorThree} />
         </div>
         <div className="three wide column">
-          <div className="colored-pin pin-blue" />
+          <div className={"colored-pin pin-" + props.colorFour} />
         </div>
         <div className="three wide column">
           <h5> Turn Number {props.turn} </h5>
