@@ -5,6 +5,8 @@
 ## Description
 This is a simple web game that mimics the game play of the classic board game Master Mind. 
 
+### [Link to working demo](https://gallant-dijkstra-379443.netlify.app/)
+
 ## Specs
 
 * App starts by showing splash screen with a start game button.
