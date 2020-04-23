@@ -4,21 +4,36 @@ import MakeGuess from "./MakeGuess";
 import MasterMindRow from "./MasterMindRow";
 import Turn from "./Turn";
 import Splash from "../Layout/Splash";
-import Modal from "../Layout/WinLossModal";
 import "semantic-ui-css/semantic.min.css";
-import EndModal from "./ModalModalExample";
+import EndModal from "./EndModal";
+import UserDetail from "./UserDetail";
+import UserUpdate from "./UserUpdate";
 
 class GameBoard extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      details: 0,
       masterSequence: this.handleMasterSequence(),
+      user: { tag: null, GG: null },
       turns: [],
       win: null,
       lose: null
     };
   }
+
+  handleUpdateUserShow = () => {
+    this.setState({ details: 2 });
+  };
+
+  handleUpdateUserData = (userData) => {
+    this.setState({ user: userData, details: 1 });
+  };
+
+  handleAddUserInfo = (userDetails) => {
+    this.setState({ user: userDetails, details: 1 });
+  };
 
   handleMasterSequence = () => {
     const colorArr = [ "Red", "Green", "Blue", "Yellow", "White", "Black" ];
@@ -82,6 +97,19 @@ class GameBoard extends React.Component {
     const loserImg = "https://media.giphy.com/media/rKj0oXtnMQNwY/source.gif";
     const winnerImg = "https://media.giphy.com/media/BCdf4zEKu9A7UM7vrU/source.gif";
     let finalImage = "https://media.giphy.com/media/rKj0oXtnMQNwY/source.gif";
+    let detailsSection;
+
+    if (this.state.details === 0) {
+      detailsSection = <Splash onNewUserOnClick={this.handleAddUserInfo} />;
+    } else if (this.state.details === 1) {
+      detailsSection = (
+        <UserDetail tag={this.state.user.tag} GG={this.state.user.GG} onUpdateOnClick={this.handleUpdateUserShow} />
+      );
+    } else if (this.state.details === 2) {
+      detailsSection = (
+        <UserUpdate onEditUserOnClick={this.handleUpdateUserData} tag={this.state.user.tag} GG={this.state.user.GG} />
+      );
+    }
 
     if (this.state.win && this.state.lose) {
       endGameMessage = "YOU WIN!";
@@ -105,21 +133,22 @@ class GameBoard extends React.Component {
 
     return (
       <div>
-        <Splash hidden={hidden} />
         <div className="ui grid">
           <div className="row">
             <div className="sixteen wide column">
-              <div className>
-                {/* <div className={hidden}> */}
-                <Modal img={finalImage} message={endGameMessage} masterSequence={this.state.masterSequence} />
-              </div>
+              <div className="ui segment">{detailsSection}</div>
             </div>
           </div>
 
           <div className="row">
             <div className="sixteen wide column">
               <div className={"ui segment " + endGame}>
-                <EndModal win={this.state.win} lose={this.state.lose} img={finalImage} />
+                <EndModal
+                  win={this.state.win}
+                  lose={this.state.lose}
+                  img={finalImage}
+                  masterSequence={this.state.masterSequence}
+                />
 
                 <MakeGuess onNewGuessOnClick={this.handleAddingGuessToBoard} />
               </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import "semantic-ui-css/semantic.min.css";
 import { Button, Header, Image, Modal, Icon } from "semantic-ui-react";
+import MasterMindRow from "./MasterMindRow";
 
 function EndModal(props) {
   const WinTitle = "You Win";
@@ -26,6 +27,7 @@ function EndModal(props) {
         <Modal.Description>
           <Header>{title}</Header>
           <p>{body}</p>
+          <MasterMindRow sequence={props.masterSequence} />
         </Modal.Description>
       </Modal.Content>
     </Modal>
