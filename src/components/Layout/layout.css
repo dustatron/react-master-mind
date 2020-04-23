@@ -1,3 +1,16 @@
-.modal {
-  display: show;
+.endGame {
+  display: flex;
+  justify-content: center;
+}
+
+/* .master-sequence {
+  display: flex;
+} */
+
+.modal--title {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-weight: bolder;
+  font-size: large;
 }

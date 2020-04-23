@@ -77,7 +77,7 @@ class GameBoard extends React.Component {
     let endGame = "";
     const loserImg = "https://media.giphy.com/media/rKj0oXtnMQNwY/source.gif";
     const winnerImg = "https://media.giphy.com/media/BCdf4zEKu9A7UM7vrU/source.gif";
-    let finalImage;
+    let finalImage = "https://media.giphy.com/media/rKj0oXtnMQNwY/source.gif";
 
     if (this.state.win && this.state.lose) {
       endGameMessage = "YOU WIN!";
@@ -105,7 +105,8 @@ class GameBoard extends React.Component {
         <div className="ui grid">
           <div className="row">
             <div className="sixteen wide column">
-              <div className={"ui segment " + hidden}>
+              <div className>
+                {/* <div className={hidden}> */}
                 <Modal img={finalImage} message={endGameMessage} masterSequence={this.state.masterSequence} />
               </div>
             </div>

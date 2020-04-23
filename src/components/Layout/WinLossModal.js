@@ -4,7 +4,7 @@ import "./layout.css";
 
 function Modal(props) {
   return (
-    <div className="">
+    <div className="endGame">
       <div className="ui modal">
         <i className="close icon" />
         <div className="header">GAME OVER!!!</div>
@@ -17,8 +17,9 @@ function Modal(props) {
             <p>Its a kids game, how did you lose?</p>
             <p>Would you like to play again?</p>
           </div>
-          <MasterMindRow sequence={props.masterSequence} />
         </div>
+        <div className="modal--title"> The Master Sequence </div>
+        <MasterMindRow sequence={props.masterSequence} />
         <div className="actions">
           <div className="ui black deny button">Nope</div>
           <div className="ui positive right labeled icon button">
