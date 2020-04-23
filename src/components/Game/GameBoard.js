@@ -10,7 +10,9 @@ class GameBoard extends React.Component {
 
     this.state = {
       masterSequence: this.handleMasterSequence(),
-      turns: []
+      turns: [],
+      win: null,
+      lose: null
     };
   }
 
@@ -31,21 +33,36 @@ class GameBoard extends React.Component {
     const newGuessArr = Object.values(newGuess).slice(0, 4);
 
     //check for matching colors. return new array of white and black.
-    const result = newGuessArr.map((color, index) => {
-      if (this.state.masterSequence.includes(color) && this.state.masterSequence[index] === color) {
-        return "Black";
-      } else if (this.state.masterSequence.includes(color) && this.state.masterSequence[index] != color) {
-        return "White";
-      } else {
-        return "";
-      }
-    });
+    //fix bug for pegs returning multiple hits.
+    const clueResult = newGuessArr
+      .map((color, index) => {
+        if (this.state.masterSequence.includes(color) && this.state.masterSequence[index] === color) {
+          return "Black";
+        } else if (this.state.masterSequence.includes(color) && this.state.masterSequence[index] !== color) {
+          return "White";
+        } else {
+          return "";
+        }
+      })
+      .sort();
+
+    const gameString = clueResult.join(",");
+    const winString = "Black,Black,Black,Black";
+
+    if (gameString === winString) {
+      this.setState({ win: true });
+    }
 
     //make turn object
-    const newTurn = { turn: newGuess, clue: result };
+    const newTurn = { turn: newGuess, clue: clueResult };
 
     //copy turn state and add new turn object array
     const newGuessSequence = this.state.turns.concat(newTurn);
+
+    //check for to many guesses
+    if (this.state.turns.length > 9) {
+      this.setState({ lose: true });
+    }
 
     //add turn object to state.
     this.setState({ turns: newGuessSequence });
@@ -63,7 +80,15 @@ class GameBoard extends React.Component {
             </div>
           </div>
 
-          {this.state.turns.reverse().map((thisTurn, index) => {
+          <div className="row">
+            <div className="sixteen wide column">
+              <div className="ui segment">
+                <MakeGuess onNewGuessOnClick={this.handleAddingGuessToBoard} />
+              </div>
+            </div>
+          </div>
+
+          {this.state.turns.map((thisTurn, index) => {
             return (
               <Turn
                 clueOne={thisTurn.clue[0]}
@@ -79,14 +104,6 @@ class GameBoard extends React.Component {
               />
             );
           })}
-
-          <div className="row">
-            <div className="sixteen wide column">
-              <div className="ui segment">
-                <MakeGuess onNewGuessOnClick={this.handleAddingGuessToBoard} />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     );

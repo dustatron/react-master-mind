@@ -1,0 +1,7 @@
+1. win state
+2. lose state
+3. hide master sequence
+4. color circles above color selectors
+5. Profile.
+   splash screen - add name. 
+   
