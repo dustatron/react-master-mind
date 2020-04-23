@@ -16,7 +16,7 @@ function GuessTemplate(props) {
           <div className={"colored-pin pin-" + props.colorFour} />
         </div>
         <div className="three wide column">
-          <h5> Turn Number {props.turn} </h5>
+          <h5> Turn Number {props.turnNumber} </h5>
         </div>
       </div>
     </div>

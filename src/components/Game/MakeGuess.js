@@ -39,14 +39,14 @@ function MakeGuess(props) {
           <div className="row">
             <div className="four wide column">
               <div className="fluid ui vertical buttons">
-                <button type="submit" class="ui secondary button">
+                <button type="submit" className="ui secondary button">
                   Submit Guess
                 </button>
               </div>
             </div>
             <div className="three wide column">
               <select className="color-one" id="Color-two" name="one">
-                <option value="" disabled selected>
+                <option disabled selected>
                   Select color 1
                 </option>
                 <option value="Red">Red</option>
@@ -59,7 +59,7 @@ function MakeGuess(props) {
             </div>
             <div className="three wide column">
               <select className="color-one" id="Color-one" name="two">
-                <option value="" disabled selected>
+                <option disabled selected>
                   Select color 2
                 </option>
                 <option value="Red">Red</option>
@@ -72,7 +72,7 @@ function MakeGuess(props) {
             </div>
             <div className="three wide column">
               <select className="color-one" id="Color-one" name="three">
-                <option value="" disabled selected>
+                <option disabled selected>
                   Select color 3
                 </option>
                 <option value="Red">Red</option>
@@ -85,7 +85,7 @@ function MakeGuess(props) {
             </div>
             <div className="three wide column">
               <select className="color-four" id="Color-one" name="four">
-                <option value="" disabled selected>
+                <option disabled selected>
                   Select color 4
                 </option>
                 <option value="Red">Red</option>

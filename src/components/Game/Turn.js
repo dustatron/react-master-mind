@@ -7,8 +7,8 @@ function Turn(props) {
     <div className="row">
       <div className="four wide column">
         <div className="ui segment">
-          {/* <Pegs pegOne={props.clueOne} pegTwo={props.clueTwo} pegThree={props.clueThree} pegFour={props.clueFour} /> */}
-          <Pegs />
+          <Pegs pegOne={props.clueOne} pegTwo={props.clueTwo} pegThree={props.clueThree} pegFour={props.clueFour} />
+          {/* <Pegs /> */}
         </div>
       </div>
       <div className="twelve wide column">
@@ -19,6 +19,7 @@ function Turn(props) {
             colorTwo={props.colorTwo}
             colorThree={props.colorThree}
             colorFour={props.colorFour}
+            turnNumber={props.turnNumber}
           />
         </div>
       </div>
