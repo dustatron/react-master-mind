@@ -1,6 +1,10 @@
 import React from "react";
 
-function Splash() {
-  return <h1>Splash</h1>;
+function Splash(props) {
+  return (
+    <div className={props.hidden}>
+      <h1 className="text-center">MasterMind Sequence:</h1>
+    </div>
+  );
 }
 export default Splash;

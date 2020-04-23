@@ -84,7 +84,7 @@ class MakeGuess extends React.Component {
                 </div>
               </div>
               <div className="three wide column">
-                <select className="color-one" id="Color-two" name="colorOne" onChange={this.colorChangehandler}>
+                <select className="ui dropdown" id="Color-two" name="colorOne" onChange={this.colorChangehandler}>
                   <option disabled selected>
                     Select color 1
                   </option>
@@ -97,7 +97,7 @@ class MakeGuess extends React.Component {
                 </select>
               </div>
               <div className="three wide column">
-                <select className="color-one" id="Color-one" name="colorTwo" onChange={this.colorChangehandler}>
+                <select className="ui dropdown" id="Color-one" name="colorTwo" onChange={this.colorChangehandler}>
                   <option disabled selected>
                     Select color 2
                   </option>
@@ -110,7 +110,7 @@ class MakeGuess extends React.Component {
                 </select>
               </div>
               <div className="three wide column">
-                <select className="color-one" id="Color-one" name="colorThree" onChange={this.colorChangehandler}>
+                <select className="ui dropdown" id="Color-one" name="colorThree" onChange={this.colorChangehandler}>
                   <option disabled selected>
                     Select color 3
                   </option>
@@ -123,7 +123,7 @@ class MakeGuess extends React.Component {
                 </select>
               </div>
               <div className="three wide column">
-                <select className="color-four" id="Color-one" name="colorFour" onChange={this.colorChangehandler}>
+                <select className="ui dropdown" id="Color-one" name="colorFour" onChange={this.colorChangehandler}>
                   <option disabled selected>
                     Select color 4
                   </option>

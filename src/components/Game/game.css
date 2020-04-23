@@ -46,7 +46,7 @@
   width: 50px;
   border-radius: 50%;
   display: inline-block;
-  margin: 10px 20px;
+  margin: 10px 50%;
 }
 
 .pin-grey {
@@ -71,4 +71,8 @@
 }
 .pin-Black {
   background-color: black;
+}
+
+.hidden {
+  display: none;
 }
