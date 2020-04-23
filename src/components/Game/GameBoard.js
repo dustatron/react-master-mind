@@ -5,6 +5,8 @@ import MasterMindRow from "./MasterMindRow";
 import Turn from "./Turn";
 import Splash from "../Layout/Splash";
 import Modal from "../Layout/WinLossModal";
+import "semantic-ui-css/semantic.min.css";
+import EndModal from "./ModalModalExample";
 
 class GameBoard extends React.Component {
   constructor(props) {
@@ -53,6 +55,7 @@ class GameBoard extends React.Component {
 
     if (gameString === winString) {
       this.setState({ win: true });
+      // handleOpen();
     }
 
     //make turn object
@@ -64,6 +67,7 @@ class GameBoard extends React.Component {
     //check for to many guesses
     if (this.state.turns.length > 8) {
       this.setState({ lose: true });
+      // handleOpen();
     }
 
     //add turn object to state.
@@ -115,6 +119,8 @@ class GameBoard extends React.Component {
           <div className="row">
             <div className="sixteen wide column">
               <div className={"ui segment " + endGame}>
+                <EndModal win={this.state.win} lose={this.state.lose} img={finalImage} />
+
                 <MakeGuess onNewGuessOnClick={this.handleAddingGuessToBoard} />
               </div>
             </div>

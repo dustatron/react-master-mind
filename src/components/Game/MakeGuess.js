@@ -1,6 +1,7 @@
 import React from "react";
 import "./game.css";
 import { v4 } from "uuid";
+import { Button } from "semantic-ui-react";
 // import PropTypes from "prop-types";
 
 class MakeGuess extends React.Component {
@@ -60,19 +61,20 @@ class MakeGuess extends React.Component {
           <div className="ui grid">
             <div className="row">
               <div className="three wide column">
-                <div className="colored-pin" />
+                {/* invisable circle */}
+                <div className="colored-pin " />
               </div>
               <div className="three wide column">
-                <div className={"colored-pin pin-" + this.state.colorOne} />
+                <div className={"colored-pin guess-cirlces pin-" + this.state.colorOne} />
               </div>
               <div className="three wide column">
-                <div className={"colored-pin pin-" + this.state.colorTwo} />
+                <div className={"colored-pin guess-cirlces pin-" + this.state.colorTwo} />
               </div>
               <div className="three wide column">
-                <div className={"colored-pin pin-" + this.state.colorThree} />
+                <div className={"colored-pin guess-cirlces pin-" + this.state.colorThree} />
               </div>
               <div className="three wide column">
-                <div className={"colored-pin pin-" + this.state.colorFour} />
+                <div className={"colored-pin guess-cirlces pin-" + this.state.colorFour} />
               </div>
             </div>
             <div className="row">
