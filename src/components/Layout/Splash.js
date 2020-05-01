@@ -1,20 +1,11 @@
-import React from "react";
-import { Button, Header, Form } from "semantic-ui-react";
-import { v4 } from "uuid";
+import React from 'react';
+import { Button, Header, Form } from 'semantic-ui-react';
+import { v4 } from 'uuid';
 
 function Splash(props) {
   function handleNewUserFormSubmisson(event) {
     event.preventDefault();
     props.onNewUserOnClick({
-      tag: event.target.tag.value,
-      GG: event.target.GG.value,
-      userId: v4()
-    });
-  }
-
-  function handleNewUserFormEdit(event) {
-    event.preventDefault();
-    props.onEditUserOnClick({
       tag: event.target.tag.value,
       GG: event.target.GG.value,
       userId: v4()

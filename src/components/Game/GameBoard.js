@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 // import ReactDom from "react-dom";
-import MakeGuess from "./MakeGuess";
-import MasterMindRow from "./MasterMindRow";
-import Turn from "./Turn";
-import Splash from "../Layout/Splash";
-import "semantic-ui-css/semantic.min.css";
-import EndModal from "./EndModal";
-import UserDetail from "./UserDetail";
-import UserUpdate from "./UserUpdate";
+import MakeGuess from './MakeGuess';
+import MasterMindRow from './MasterMindRow';
+import Turn from './Turn';
+import Splash from '../Layout/Splash';
+import 'semantic-ui-css/semantic.min.css';
+import EndModal from './EndModal';
+import UserDetail from './UserDetail';
+import UserUpdate from './UserUpdate';
 
 class GameBoard extends React.Component {
   constructor(props) {
@@ -35,38 +35,42 @@ class GameBoard extends React.Component {
     this.setState({ user: userDetails, details: 1 });
   };
 
+  //build the master sequence
   handleMasterSequence = () => {
-    const colorArr = [ "Red", "Green", "Blue", "Yellow", "White", "Black" ];
-    // const newMasterSequence = this.state.masterSequence.concat(color);
-    const newMasterSequence = [ 1, 1, 1, 1 ].map((color) => {
-      return Math.floor(Math.random() * 5);
-    });
+    const colorArr = [ 'Red', 'Green', 'Blue', 'Yellow', 'White', 'Black' ];
+    let colorsLeft = colorArr;
+    let colorResults = [];
 
-    const newMasterSequenceColors = newMasterSequence.map((colorNumber) => {
-      return colorArr[colorNumber];
-    });
-    return newMasterSequenceColors;
+    //provide a selection of 4 colors with no repeats
+    for (let index = 0; index < 4; index++) {
+      const randChoice = colorsLeft[Math.floor(Math.random() * colorsLeft.length)];
+      colorResults.push(randChoice);
+      colorsLeft = colorsLeft.filter((letter) => letter !== randChoice);
+    }
+
+    return colorResults;
   };
 
   handleAddingGuessToBoard = (newGuess) => {
     const newGuessArr = Object.values(newGuess).slice(0, 4);
+    const masterSet = this.state.masterSequence;
 
     //check for matching colors. return new array of white and black.
     //fix bug for pegs returning multiple hits.
-    const clueResult = newGuessArr
+    const clueResult = masterSet
       .map((color, index) => {
-        if (this.state.masterSequence.includes(color) && this.state.masterSequence[index] === color) {
-          return "Black";
-        } else if (this.state.masterSequence.includes(color) && this.state.masterSequence[index] !== color) {
-          return "White";
+        if (newGuessArr.includes(color) && newGuessArr[index] === color) {
+          return 'Black';
+        } else if (newGuessArr.includes(color) && newGuessArr[index] !== color) {
+          return 'White';
         } else {
-          return "";
+          return '';
         }
       })
       .sort();
 
-    const gameString = clueResult.join(",");
-    const winString = "Black,Black,Black,Black";
+    const gameString = clueResult.join(',');
+    const winString = 'Black,Black,Black,Black';
 
     if (gameString === winString) {
       this.setState({ win: true });
@@ -90,13 +94,13 @@ class GameBoard extends React.Component {
   };
 
   render() {
-    let showMasterSequence = "";
-    let hidden = "hidden";
-    let endGameMessage = "";
-    let endGame = "";
-    const loserImg = "https://media.giphy.com/media/rKj0oXtnMQNwY/source.gif";
-    const winnerImg = "https://media.giphy.com/media/BCdf4zEKu9A7UM7vrU/source.gif";
-    let finalImage = "https://media.giphy.com/media/rKj0oXtnMQNwY/source.gif";
+    let showMasterSequence;
+    let hidden = 'hidden';
+    let endGameMessage = '';
+    let endGame = '';
+    const loserImg = 'https://media.giphy.com/media/rKj0oXtnMQNwY/source.gif';
+    const winnerImg = 'https://media.giphy.com/media/BCdf4zEKu9A7UM7vrU/source.gif';
+    let finalImage = 'https://media.giphy.com/media/rKj0oXtnMQNwY/source.gif';
     let detailsSection;
 
     if (this.state.details === 0) {
@@ -112,21 +116,21 @@ class GameBoard extends React.Component {
     }
 
     if (this.state.win && this.state.lose) {
-      endGameMessage = "YOU WIN!";
-      hidden = "";
-      endGame = "hidden";
+      endGameMessage = 'YOU WIN!';
+      hidden = '';
+      endGame = 'hidden';
       showMasterSequence = <MasterMindRow sequence={this.state.masterSequence} />;
       finalImage = winnerImg;
     } else if (!this.state.win && this.state.lose) {
-      endGameMessage = "It looks like you lost the game. You loser.";
-      hidden = "";
-      endGame = "hidden";
+      endGameMessage = 'It looks like you lost the game. You loser.';
+      hidden = '';
+      endGame = 'hidden';
       finalImage = loserImg;
       showMasterSequence = <MasterMindRow sequence={this.state.masterSequence} />;
     } else if (this.state.win && !this.state.lose) {
-      endGameMessage = "You won, you winner!";
-      hidden = "";
-      endGame = "hidden";
+      endGameMessage = 'You won, you winner!';
+      hidden = '';
+      endGame = 'hidden';
       showMasterSequence = <MasterMindRow sequence={this.state.masterSequence} />;
       finalImage = winnerImg;
     }
@@ -141,8 +145,8 @@ class GameBoard extends React.Component {
           </div>
 
           <div className="row">
-            <div className="sixteen wide column">
-              <div className={"ui segment " + endGame}>
+            <div className="sixteen wide column ">
+              <div className={'ui segment ' + endGame}>
                 <EndModal
                   win={this.state.win}
                   lose={this.state.lose}
@@ -155,7 +159,7 @@ class GameBoard extends React.Component {
             </div>
           </div>
 
-          {this.state.turns.map((thisTurn, index) => {
+          {this.state.turns.reverse().map((thisTurn, index) => {
             return (
               <Turn
                 clueOne={thisTurn.clue[0]}

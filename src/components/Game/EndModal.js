@@ -1,13 +1,13 @@
-import React from "react";
-import "semantic-ui-css/semantic.min.css";
-import { Button, Header, Image, Modal, Icon } from "semantic-ui-react";
-import MasterMindRow from "./MasterMindRow";
+import React from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import { Header, Image, Modal } from 'semantic-ui-react';
+import MasterMindRow from './MasterMindRow';
 
 function EndModal(props) {
-  const WinTitle = "You Win";
-  const WinBody = "Winner winner chicken dinner";
-  const LoseTitle = "Loser Loser. You lost.";
-  const LoseBody = "Loser loser vegetables and saddness.";
+  const WinTitle = 'You Win';
+  const WinBody = 'Winner winner chicken dinner';
+  const LoseTitle = 'Loser Loser. You lost.';
+  const LoseBody = 'Loser loser vegetables and saddness.';
 
   let title;
   let body;

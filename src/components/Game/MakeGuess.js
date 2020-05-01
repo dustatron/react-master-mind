@@ -1,17 +1,15 @@
-import React from "react";
-import "./game.css";
-import { v4 } from "uuid";
-import { Button } from "semantic-ui-react";
-// import PropTypes from "prop-types";
+import React from 'react';
+import './game.css';
+import { v4 } from 'uuid';
 
 class MakeGuess extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      colorOne: "grey",
-      colorTwo: "grey",
-      colorThree: "grey",
-      colorFour: "grey"
+      colorOne: 'grey',
+      colorTwo: 'grey',
+      colorThree: 'grey',
+      colorFour: 'grey'
     };
 
     this.onNewGuessOnClick = props.onNewGuessOnClick;
@@ -32,22 +30,22 @@ class MakeGuess extends React.Component {
     const name = event.target.name;
     const value = event.target.value;
 
-    if (name === "colorOne") {
+    if (name === 'colorOne') {
       this.setState({
         colorOne: value
       });
     }
-    if (name === "colorTwo") {
+    if (name === 'colorTwo') {
       this.setState({
         colorTwo: value
       });
     }
-    if (name === "colorThree") {
+    if (name === 'colorThree') {
       this.setState({
         colorThree: value
       });
     }
-    if (name === "colorFour") {
+    if (name === 'colorFour') {
       this.setState({
         colorFour: value
       });
@@ -58,23 +56,23 @@ class MakeGuess extends React.Component {
     return (
       <React.Fragment>
         <form onSubmit={this.handleNewGuessFormSubmission}>
-          <div className="ui grid">
+          <div className="ui grid ">
             <div className="row">
               <div className="three wide column">
                 {/* invisable circle */}
                 <div className="colored-pin " />
               </div>
               <div className="three wide column">
-                <div className={"colored-pin guess-cirlces pin-" + this.state.colorOne} />
+                <div className={'colored-pin guess-cirlces pin-' + this.state.colorOne} />
               </div>
               <div className="three wide column">
-                <div className={"colored-pin guess-cirlces pin-" + this.state.colorTwo} />
+                <div className={'colored-pin guess-cirlces pin-' + this.state.colorTwo} />
               </div>
               <div className="three wide column">
-                <div className={"colored-pin guess-cirlces pin-" + this.state.colorThree} />
+                <div className={'colored-pin guess-cirlces pin-' + this.state.colorThree} />
               </div>
               <div className="three wide column">
-                <div className={"colored-pin guess-cirlces pin-" + this.state.colorFour} />
+                <div className={'colored-pin guess-cirlces pin-' + this.state.colorFour} />
               </div>
             </div>
             <div className="row">

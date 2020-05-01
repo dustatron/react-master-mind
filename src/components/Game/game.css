@@ -50,24 +50,34 @@
 }
 
 .pin-grey {
-  background-color: #333;
+  background-color: rgb(175, 175, 175);
 }
 
 .pin-Red {
   background-color: red;
+  -webkit-box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
+  box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
 }
 .pin-Green {
   background-color: green;
+  -webkit-box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
+  box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
 }
 
 .pin-Blue {
   background-color: blue;
+  -webkit-box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
+  box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
 }
 .pin-Yellow {
   background-color: yellow;
+  -webkit-box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
+  box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
 }
 .pin-White {
-  background-color: whitesmoke;
+  background-color: rgb(255, 255, 255);
+  -webkit-box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
+  box-shadow: 5px 5px 21px 11px rgba(0, 0, 0, 0.13);
 }
 .pin-Black {
   background-color: black;
